@@ -1,12 +1,81 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Abdullah's IoT Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4rem 2rem;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+      color: #00fff7;
+      font-size: 2rem;
+      text-shadow: 0 0 10px #00fff7;
+    }
+
+    .hero-img {
+      flex: 1;
+      min-width: 300px;
+      height: 300px;
+      background-color: #111;
+      border-radius: 15px;
+      background-size: cover;
+      background-position: center;
+      margin-left: 2rem;
+    }
+
+    .explore-btn {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background-color: #00fff7;
+      color: #000;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .explore-btn:hover {
+      background-color: #00d0c2;
+      box-shadow: 0 0 10px #00fff7;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .search-bar input {
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+      }
+
+      .hero-img {
+        margin: 2rem 0 0 0;
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -18,18 +87,36 @@
     <a href="esp32.html">ESP32 Projects</a>
     <a href="arduino.html">Arduino Projects</a>
     <a href="contact.html">Contact</a>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search projects...">
+    </div>
   </nav>
 
-  <section>
-    <h2>Welcome to My Tech World</h2>
-    <p>Explore innovative projects built using ESP32 and Arduino platforms. Each project is designed with creativity, efficiency, and modern solutions in mind.</p>
-
-    <h3>Project Categories</h3>
-    <ul>
-      <li><a href="esp32.html">ESP32 Projects</a></li>
-      <li><a href="arduino.html">Arduino Projects</a></li>
-    </ul>
+  <section class="hero">
+    <div class="hero-text">
+      <p>Building innovation with ESP32 and Arduino, one circuit at a time.</p>
+      <a href="explore.html"><button class="explore-btn">Explore Projects &rarr;</button></a>
+    </div>
+    <div class="hero-img" style="background-image: url('');">
+      <!-- ADD YOUR BACKGROUND IMAGE URL ABOVE -->
+    </div>
   </section>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('keyup', function (e) {
+      if (e.key === 'Enter') {
+        const query = searchInput.value.toLowerCase();
+        if (query.includes('esp')) {
+          window.location.href = 'esp32.html';
+        } else if (query.includes('arduino')) {
+          window.location.href = 'arduino.html';
+        } else {
+          alert('No matching project found. Try \"esp\" or \"arduino\"');
+        }
+      }
+    });
+  </script>
 
   <footer>
     <p>Contact: <a href="mailto:abdullahsd533@gmail.com">abdullahsd533@gmail.com</a> | GitHub: <a href="https://github.com/yourgithub">github.com/yourgithub</a></p>
