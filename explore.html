@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .explore-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 2rem;
+    }
+
+    .explore-title {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff7;
+    }
+
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .explore-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 2px solid #00fff7;
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 0 20px #00fff7;
+      transition: transform 0.3s, background 0.3s;
+      cursor: pointer;
+    }
+
+    .explore-box:hover {
+      transform: scale(1.05);
+      background: rgba(0, 255, 247, 0.1);
+    }
+
+    .explore-box h2 {
+      color: white;
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .explore-box p {
+      color: #c4f5f5;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .explore-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Explore My Projects</h1>
+  </header>
+
+  <section class="explore-container">
+    <h2 class="explore-title">Choose a Category</h2>
+    <div class="explore-grid">
+      <div class="explore-box" onclick="location.href='esp32.html'">
+        <h2>ESP32 Projects</h2>
+        <p>Wi-Fi, Bluetooth, and IoT magic with ESP32 microcontrollers.</p>
+      </div>
+      <div class="explore-box" onclick="location.href='arduino.html'">
+        <h2>Arduino Projects</h2>
+        <p>Core automation and embedded control using Arduino boards.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Contact: <a href="mailto:abdullahsd533@gmail.com">abdullahsd533@gmail.com</a> | GitHub: <a href="https://github.com/yourgithub">github.com/yourgithub</a></p>
+    <p>&copy; 2025 Abdullah Siddiqui | Tech Portfolio</p>
+  </footer>
+</body>
+</html>
