@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ESP32 OLED Control</title>
+</head>
+<body>
+  <h2>Send Text to ESP32 OLED</h2>
+  <input type="text" id="textInput" placeholder="Enter text..." />
+  <button onclick="sendText()">Send</button>
+
+  <script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
+
+    // Your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyBS6Bt3Q5HWUkpsQccLYdZyds7gZlnMWxg",
+      authDomain: "esp-oled.firebaseapp.com",
+      projectId: "esp-oled",
+      storageBucket: "esp-oled.firebasestorage.app",
+      messagingSenderId: "44263864254",
+      appId: "1:44263864254:web:d363809de3540ec67e6bef",
+      databaseURL: "https://esp-oled-default-rtdb.firebaseio.com/"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    function sendText() {
+      const msg = document.getElementById("textInput").value;
+      set(ref(db, "message"), msg)
+        .then(() => alert("Message sent to ESP32!"))
+        .catch((error) => alert("Error: " + error));
+    }
+
+    // Expose function to global
+    window.sendText = sendText;
+  </script>
+</body>
+</html>
